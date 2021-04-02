@@ -1,5 +1,21 @@
-GET http://localhost:3000/
+###//- recuperar todos los proyectos
+GET http://localhost:3000/api/proyectos 
 
-###
+### //- crear un nuevo proyecto
+POST http://localhost:3000/api/proyectos 
+Content-Type: application/json
 
-GET http://localhost:3000/api/proyectos
+{
+    "titulo":"Prueba1",
+    "descripcion":"Descripcion de prueba",
+    "url":"http://www.google.es",
+    "cliente":"Google",
+    "url_cliente":"http://www.google.es"
+
+}
+
+### //- editar un proyecto
+PUT http://localhost:3000/api/proyectos  
+
+### //- borrar proyecto
+DELETE http://localhost:3000/api/proyectos 
