@@ -8,7 +8,7 @@ router.get('/', async (req,res)=>{
         const proyectos = await Proyecto.find();
         res.json(proyectos);
     } catch(err){
-        res.status(503).json({"error": err});
+        res.status(503).json({"error": err,"erorr1":"No accedido"});
     }
     
     
