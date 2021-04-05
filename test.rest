@@ -1,5 +1,6 @@
 ###//- recuperar todos los proyectos
 GET http://localhost:3000/api/proyectos 
+access-token:token
 
 ### //- crear un nuevo proyecto
 POST http://localhost:3000/api/proyectos 
@@ -15,7 +16,20 @@ Content-Type: application/json
 }
 
 ### //- editar un proyecto
-PUT http://localhost:3000/api/proyectos  
+PUT http://localhost:3000/api/proyectos/6066f34b2591152e20359cd8  
+Content-Type: application/json
+
+{
+    "titulo":"Editado de prueba",
+    "descripcion":"Descripcion de prueba",
+    "url":"http://www.google.es",
+    "cliente":"Google",
+    "url_cliente":"http://www.google.es"
+
+}
 
 ### //- borrar proyecto
-DELETE http://localhost:3000/api/proyectos 
+DELETE http://localhost:3000/api/proyectos/6066fc04b12b230bc480b0cf 
+
+###
+GET http://localhost:3000/api/token
