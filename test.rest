@@ -1,30 +1,40 @@
 ###//- recuperar todos los proyectos
 GET http://localhost:3000/api/proyectos 
-access-token:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiSXbDoW4iLCJjcmVhdGVkX2F0IjoxNjE3NjQ2MDI1LCJleHBpcmVkX2F0IjoxNjE3NjQ2MzI1fQ.W9yMlTq28iu_Rm5I3vGJHWOJY26-B_zErxsRKgzvQrc
+access-token:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiSXbDoW4iLCJjcmVhdGVkX2F0IjoxNjE3NjQ5MTc3LCJleHBpcmVkX2F0IjoxNjE3NjQ5NDc3fQ.4BbaQShFFDAKAtGh5NGP5C2zhyuojRMEtGLOK26U5sk
+
+### Get por categorias
+
+GET http://localhost:3000/api/proyectos/wordpress
+Content-Type: application/json
+access-token:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiSXbDoW4iLCJjcmVhdGVkX2F0IjoxNjE3NjQ5NDkxLCJleHBpcmVkX2F0IjoxNjE3NjU1NDkxfQ.KApvfXlFBVmHgaIcKunKqUxvZ1iukWC7hJdfjJ1U5p4
 
 ### //- crear un nuevo proyecto
 POST http://localhost:3000/api/proyectos 
 Content-Type: application/json
+access-token:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiSXbDoW4iLCJjcmVhdGVkX2F0IjoxNjE3NjQ5MTc3LCJleHBpcmVkX2F0IjoxNjE3NjQ5NDc3fQ.4BbaQShFFDAKAtGh5NGP5C2zhyuojRMEtGLOK26U5sk
 
 {
-    "titulo":"Prueba1",
-    "descripcion":"Descripcion de prueba",
+    "titulo":"ProyectoWEB",
+    "descripcion":"proyecto web de prueba para categorias",
     "url":"http://www.google.es",
     "cliente":"Google",
-    "url_cliente":"http://www.google.es"
+    "url_cliente":"http://www.google.es",
+    "categoria":"nodejs"
 
 }
 
 ### //- editar un proyecto
 PUT http://localhost:3000/api/proyectos/6066f34b2591152e20359cd8  
 Content-Type: application/json
+access-token:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiSXbDoW4iLCJjcmVhdGVkX2F0IjoxNjE3NjQ5NDkxLCJleHBpcmVkX2F0IjoxNjE3NjU1NDkxfQ.KApvfXlFBVmHgaIcKunKqUxvZ1iukWC7hJdfjJ1U5p4
 
 {
     "titulo":"Editado de prueba",
     "descripcion":"Descripcion de prueba",
     "url":"http://www.google.es",
     "cliente":"Google",
-    "url_cliente":"http://www.google.es"
+    "url_cliente":"http://www.google.es",
+    "categoria":"wordpress"
 
 }
 
@@ -37,7 +47,7 @@ GET http://localhost:3000/api/token
 ### PRODUCCION
 
 GET https://myportfolioback.herokuapp.com/api/proyectos
-access-token:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiSXbDoW4iLCJjcmVhdGVkX2F0IjoxNjE3NjQ2OTQwLCJleHBpcmVkX2F0IjoxNjE3NjQ3MjQwfQ._rtaG0_VL_oaXiA-96rFNm6NQfilDCpzx_H9WKwOpTk
+access-token:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiSXbDoW4iLCJjcmVhdGVkX2F0IjoxNjE3NjQ4NzAyLCJleHBpcmVkX2F0IjoxNjE3NjQ5MDAyfQ.CLKPsXjrxrxovbx0m-pAONZ2lEjyizDAJwnfLIIQkmc
 
 ### 
 GET https://myportfolioback.herokuapp.com/api/token

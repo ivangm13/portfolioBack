@@ -1,25 +1,39 @@
 const router = require('express').Router();
 const { check, validationResult } = require('express-validator');
 
+
 const Proyecto = require('../../models/proyecto');
+
+
 
 router.get('/', async (req,res)=>{
     try{
-        const proyectos = await Proyecto.find();
+        const proyectos = await Proyecto.find(); 
         res.json(proyectos);
     } catch(err){
-        res.status(503).json({"error": err,"erorr1":"No accedido"});
+        res.status(503).json({"error": err,"error2":"No accedido a la base de datos"});
     }
     
     
 });
 
+router.get('/:categoria', async(req,res)=>{
+    try{
+    const proyectos = await Proyecto.find({categoria: req.params.categoria})
+        res.json(proyectos);
+    }catch(err){
+        res.status(503).json({'error':err});
+    }
+});
+
 router.post('/',[
     check('titulo','El titulo debe existir y tener entre 3 y 30 caracteres')
         .exists()
+        .notEmpty()
         .isLength({min:3,max:30}),
     check('descripcion','La descripcion debe existir y tener máximo 300 caracteres')
         .exists()
+        .notEmpty()
         .isLength({min:3,max:300}),
     check('url','La url del proyecto debe ser correcta')
         .isURL()
@@ -40,7 +54,7 @@ router.post('/',[
 });
 router.put('/:id', async(req, res)=>{
     try{
-        const modified = await Proyecto.findByIdAndUpdate(req.params.id, req.body);
+        const modified = await Proyecto.findByIdAndUpdate(req.params.id, req.body,{new:true});
         res.json(modified);
     }catch(err){
         res.status(503).json({"error": err});
@@ -55,5 +69,6 @@ router.delete('/:id',async(req,res)=>{
         res.status(503).json({"error": err});
     }
 });
+
 
 module.exports = router;
